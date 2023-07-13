@@ -2,15 +2,17 @@ package ru.abch.alauncher2
 
 import android.content.Intent
 import android.content.pm.ResolveInfo
+
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -128,11 +130,16 @@ class AppsFragment : Fragment() {
                 appList.add(app)
             }
         }
-//        Log.d(TAG, "apps count = " + appList.size)
-        binding.appsFragmentList.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL )
+        val displayMetrics = DisplayMetrics()
+        requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
+        val width = displayMetrics.widthPixels
+        val height = displayMetrics.heightPixels
+        Log.d(TAG, "width = " + width + " height = " + height)
+        val spanCount = width / 240
+        binding.appsFragmentList.layoutManager = StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL )
         binding.appsFragmentList.adapter = Adapter(requireActivity()).also {
             it.passAppList(appList.sortedWith(
-                Comparator<AppBlock> { o1, o2 -> o1?.appName?.compareTo(o2?.appName?:"",true)?:0; }
+                { o1, o2 -> o1?.appName?.compareTo(o2?.appName?:"",true)?:0; }
             ))
         }
     }
