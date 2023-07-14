@@ -13,7 +13,7 @@ import java.io.File
 import java.io.IOException
 
 class App : Application() {
-    var TAG = "App"
+    val TAG = this.javaClass.simpleName
     private var sp: SharedPreferences? = null
 
     lateinit var mcuDevice : String

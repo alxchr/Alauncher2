@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Toast;
@@ -25,9 +26,7 @@ import java.util.Objects;
  */
 public class Utilities {
 
-    static String TAG = "[Utilities]";
-
-
+    private static String TAG = "Utilities";
     public static Bitmap getResizedBitmap(Bitmap bm, int newHeight, int newWidth) {
         int width = bm.getWidth();
         int height = bm.getHeight();
@@ -92,6 +91,7 @@ public class Utilities {
             toast = Toast.makeText(cxt, text, Toast.LENGTH_SHORT);
             toast.show();
         } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
         }
     }
 
@@ -130,5 +130,4 @@ public class Utilities {
         } catch (ClassNotFoundException e) {e.printStackTrace();}
         return "";
     }
-
 }

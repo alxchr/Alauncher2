@@ -18,7 +18,7 @@ import ru.abch.alauncher2.databinding.FragmentMainBinding
  */
 class MainFragment : Fragment() {
     private val hideHandler = Handler(Looper.myLooper()!!)
-
+    val TAG = this.javaClass.simpleName
     @Suppress("InlinedApi")
     private val hidePart2Runnable = Runnable {
         // Delayed removal of status and navigation bar
@@ -178,7 +178,7 @@ class MainFragment : Fragment() {
          * and a change of the status and navigation bar.
          */
         private const val UI_ANIMATION_DELAY = 300
-        private  const val TAG = "MainFragment"
+
         fun newInstance(): MainFragment {
             return MainFragment()
         }

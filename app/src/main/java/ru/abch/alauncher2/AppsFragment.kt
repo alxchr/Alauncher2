@@ -24,7 +24,7 @@ import ru.abch.alauncher2.databinding.FragmentAppsBinding
  * status bar and navigation/system bar) with user interaction.
  */
 class AppsFragment : Fragment() {
-
+    val TAG = this.javaClass.simpleName
     private val hideHandler = Handler(Looper.myLooper()!!)
     private lateinit var resolvedApplist: List<ResolveInfo>
 //    lateinit var appsBinding: FragmentAppsBinding
@@ -228,7 +228,6 @@ class AppsFragment : Fragment() {
         fun newInstance(): AppsFragment {
             return AppsFragment()
         }
-        private const val TAG = "AppsFragment"
     }
 
     override fun onDestroyView() {
