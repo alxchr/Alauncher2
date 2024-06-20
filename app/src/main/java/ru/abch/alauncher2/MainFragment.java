@@ -76,7 +76,6 @@ public class MainFragment extends Fragment {
             public void onValueChange(int selectedValue) {
                 int freq = selectedValue *10;
                 App.get().storeChannel(freq);
-//                ((MainActivity2) requireActivity()).getViewModel().loadStation(freq,"");
                 radioIntent = new Intent(requireActivity(), RadioService.class);
                 radioIntent.putExtra("mute",App.get().getMute());
                 radioIntent.putExtra("freq", freq);
@@ -218,7 +217,9 @@ public class MainFragment extends Fragment {
                     tvVoltage.setTextColor(getResources().getColor(R.color.red));
                 } else if (voltage < 12.6) {
                     tvVoltage.setTextColor(getResources().getColor(R.color.yellow));
-                } else if (voltage > 14.8) {
+                } else if (voltage < 14.8) {
+                    tvVoltage.setTextColor(getResources().getColor(R.color.green));
+                }else if (voltage >= 14.8) {
                     tvVoltage.setTextColor(getResources().getColor(R.color.red));
                 }
             }
