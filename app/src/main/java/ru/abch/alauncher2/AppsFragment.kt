@@ -135,7 +135,7 @@ class AppsFragment : Fragment() {
         val width = displayMetrics.widthPixels
         val height = displayMetrics.heightPixels
         Log.d(TAG, "width = " + width + " height = " + height)
-        val spanCount = width / 240
+        val spanCount = width / 200
         binding.appsFragmentList.layoutManager = StaggeredGridLayoutManager(spanCount, LinearLayoutManager.VERTICAL )
         binding.appsFragmentList.adapter = Adapter(requireActivity()).also {
             it.passAppList(appList.sortedWith(

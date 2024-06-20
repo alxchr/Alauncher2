@@ -1,8 +1,14 @@
 package ru.abch.alauncher2
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 
 class MainActivity2 : AppCompatActivity() {
@@ -17,4 +23,6 @@ class MainActivity2 : AppCompatActivity() {
         viewPager = findViewById(R.id.main_pager)
         viewPager.adapter = FragmentsAdapter(this)
     }
+
+
 }

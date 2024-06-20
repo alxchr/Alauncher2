@@ -18,10 +18,6 @@ public class Config {
     public static int startPage = 1;
     public static int appsPage = 2;
     public static int totalPages = 3;
-
-    public final static int leftButtons = 0;
-    public final static int bottomButtons = 1;
-    public final static int rightButtons = 2;
     private static int widgetAreaWidth = 0;
     private static int widgetAreaHeight = 0;
     public static int widgetAreaColumns = 0;
@@ -33,12 +29,6 @@ public class Config {
     private static boolean busycell[][]= new boolean[32][64];
     private static String mcuDevice = "";
     private static int mcuSpeed = 9600;
-    public final static int [] defaultRadioFreqs = {987, 991, 1000, 1008, 1012, 1029, 1059, 1063};
-    public final static int freqButtons = defaultRadioFreqs.length;
-
-    public static int radioStreamPort; // = 8080;
-    public static int radioControlPort; // = 6020;
-    public static String radioIP; // = "192.168.250.64";
     public static String getMCUDevice(){
         return mcuDevice;
     }
@@ -117,5 +107,4 @@ public class Config {
         return def;
     }
     public static final String script = "/system/etc/alauncher.sh";
-    public static int radioType;
 }
